@@ -14,9 +14,11 @@ module uni_shift_reg(
       else
         case(s)
           2'b01:
-            q <= {sin,[3:1]din} ;
+            assign q = {sin, din[3:1]};
+           //assign q=1011;
           2'b10:
-            q <= {[2:0]din, sin};
+            q <= {din[2:0], sin};
+           // assign q=0110;
           2'b11:
             q <= din;
           default:
